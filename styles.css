@@ -8,6 +8,9 @@
   --highlight: #00abf0;
   --white: #fff;
 }
+html {
+  overflow-x: hidden;
+}
 
 /*Body Page*/
 * {
@@ -30,6 +33,7 @@ nav {
   position: fixed;
   background-color: var(--primary);
   box-shadow: 0 0.1vw 2vw rgba(146, 161, 176, 0.3);
+  z-index: 1000;
 }
 
 .nav-container {
@@ -92,7 +96,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 6vw;
+  padding-top: 10vh;
 }
 
 .main-container .content {
@@ -204,7 +208,7 @@ nav {
   justify-content: center;
   align-items: center;
 }
-.main-container .img .img-box {
+.img .img-box {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -238,23 +242,107 @@ nav {
 }
 .img-box .img-item {
   position: relative;
-  width: 29vw; /* 8px creates the border thickness (4px on each side) */
+  width: 29vw;
   height: 29vw;
   border-radius: 50%;
-  background-color: var(
-    --primary
-  ); /* Matches bg to mask the center of the glow */
-  z-index: 1; /* Stays on top of the spinner */
+  background-color: var(--primary);
+  z-index: 1;
   overflow: hidden;
 }
 .main-container .img img {
-  width:100%;
-  height:120%;
+  width: 100%;
+  height: 120%;
   object-fit: cover;
   display: block;
 }
-
 /*About Section*/
-#about h1 {
+#about .content {
+  width: 80%;
+  margin: 0px auto;
+  
+}
+#about .title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.title h2 {
   color: var(--white);
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+.title h2::before,
+.title h2::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: var(--highlight);
+  left: 0;
+  bottom: 0;
+}
+.title h2::after{
+  bottom: -7px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about-details{
+  display: flex;
+  padding-top: 30px;
+}
+.about-details .img{
+  width: 45%;
+}
+
+.img img{
+  height: 400px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.about-details .info{
+  width: 55%;
+}
+.info h3{
+  color: var(--white);
+  padding-bottom: 5px;
+}
+.info .role{
+  color: var(--white);
+  padding-bottom: 10px;
+}
+.info .about-me{
+  color: var(--white);
+  text-align: justify;
+  padding-bottom: 15px;
+}
+.details .email{
+  padding-bottom: 10px;
+}
+.details .place{
+  padding-bottom: 25px;
+}
+.info .resume{
+  margin: 16px 0;
+}
+.resume a{
+  text-decoration: none;
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: 400;
+  background: var(--highlight);
+  color: var(--white);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4 ease;
+}
+.resume a:hover{
+  border-color: var(--highlight);
+  background-color: var(--primary);
+  color: var(--highlight);
 }
